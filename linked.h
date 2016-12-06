@@ -17,4 +17,7 @@ struct head {
 };
 
 struct head * buildList();
-int addNode(struct head * header, struct node * add);
+int addNode(struct head * header, void * data);
+void printList(struct head * header);
+int destroyList(struct head * header);
+
