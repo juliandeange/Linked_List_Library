@@ -17,7 +17,14 @@ struct head {
 };
 
 struct head * buildList();
-int addNode(struct head * header, void * data);
+int insertEnd(struct head * header, void * data);
+int insertBeginning(struct head * header, void * data);
+int removeEnd(struct head * header);
+int removeBeginning(struct head * header);
+int setHeaderName(struct header * header, char * string);
+
 void printList(struct head * header);
-int destroyList(struct head * header);
+void destroyList(struct head * header);
+
+
 

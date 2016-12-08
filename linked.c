@@ -10,7 +10,7 @@ struct head * buildList() {
 	return str;
 }
 
-int addNode(struct head * header, void * data) {
+int insertEnd(struct head * header, void * data) {
 
 	if (header == NULL)
 		return FAILURE;
@@ -20,7 +20,11 @@ int addNode(struct head * header, void * data) {
 	loopVar = header->next;
 
 	add = calloc(1, sizeof(struct node));
+	if (add == NULL)
+		return FAILURE;
+
 	add->data = data;
+	add->next = NULL;
 
 	if (header->next == NULL)
 		header->next = add;
@@ -34,6 +38,26 @@ int addNode(struct head * header, void * data) {
 	return SUCCESS;
 }
 
+int insertBeginning(struct head * header, void * data) {
+
+	if (header == NULL)
+		return FAILURE;
+
+	struct node * add;
+	struct node * temp;
+
+	add = calloc(1, sizeof(struct node));
+	if (add == NULL)
+		return FAILURE;
+
+	add->data = data;
+	add->next = header->next;
+	header->next = add;
+
+	return SUCCESS;
+
+}
+
 void printList(struct head * header) {
 
 	struct node * loopVar;
@@ -45,7 +69,7 @@ void printList(struct head * header) {
 
 }
 
-int destroyList(struct head * header) {
+void destroyList(struct head * header) {
 
 	struct node * loopVar;
 	struct node * temp;
@@ -58,9 +82,11 @@ int destroyList(struct head * header) {
 	}
 	free(header);
 
-	return SUCCESS;
-
 }
+
+
+
+
 
 
 
