@@ -12,7 +12,7 @@ struct node {
 };
 
 struct head {
-	void * data;
+	char * name;
     struct node * next;
 };
 
@@ -21,7 +21,7 @@ int insertEnd(struct head * header, void * data);
 int insertBeginning(struct head * header, void * data);
 int removeEnd(struct head * header);
 int removeBeginning(struct head * header);
-int setHeaderName(struct header * header, char * string);
+int setHeaderName(struct head * header, char * string);
 
 void printList(struct head * header);
 void destroyList(struct head * header);

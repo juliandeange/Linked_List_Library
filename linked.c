@@ -80,13 +80,21 @@ void destroyList(struct head * header) {
 		loopVar = loopVar->next;
 		free(temp);
 	}
+	free(header->name);
 	free(header);
 
 }
 
+int setHeaderName(struct head * header, char * string) {
 
+	if (header == NULL)
+		return FAILURE;
 
+	header->name = calloc(1, sizeof(char) * strlen(string) + 1);
+	strcpy(header->name, string);
+	return SUCCESS;
 
+}
 
 
 
