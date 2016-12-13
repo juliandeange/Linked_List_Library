@@ -12,6 +12,7 @@ struct node {
 };
 
 struct head {
+	int length;
 	char * name;
     struct node * next;
 };
